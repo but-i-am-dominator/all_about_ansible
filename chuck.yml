@@ -1,0 +1,18 @@
+---
+- name: Using a REST API
+  become: false
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: GET Chuck Norris joke
+      uri:
+        url: https://api.chucknorris.io/jokes/random
+        method: GET
+      register: results
+
+    - debug:
+        var: results
+
+    - copy:
+        content: "{{ results.json.value }}"
+        dest: "cool.txt"

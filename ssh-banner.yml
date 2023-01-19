@@ -1,0 +1,19 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Adding banner info in sshd.conf
+      lineinfile: 
+        dest: /etc/ssh/sshd_config  
+        line: "Banner /etc/banner.txt"
+
+    - name: Update ssh banner
+      ansible.builtin.copy:
+        src: banner.txt
+        dest: /etc/banner.txt
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Restart ssh
+      service: name=ssh state=restarted

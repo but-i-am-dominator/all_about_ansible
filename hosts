@@ -1,0 +1,20 @@
+; Datacenter Hosts
+
+[webservers]
+web01.quartarolo.net
+web02.quartarolo.net
+web03.quartarolo.net
+
+[dbservers]
+db01.quartarolo.net
+db02.quartarolo.net
+db03.quartarolo.net
+
+[consul]
+consul.quartarolo.net
+
+[prometheus]
+prometheus.quartarolo.net
+
+[ns01]
+ns01.quartarolo.net
